@@ -1,39 +1,31 @@
 package com.capgemini.wsb.persistence.entity;
-
+import javax.persistence.*;
 import java.time.LocalDate;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.List;
 
 @Entity
 @Table(name = "PATIENT")
 public class PatientEntity {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
-	@Column(nullable = false)
 	private String firstName;
-
-	@Column(nullable = false)
 	private String lastName;
-
-	@Column(nullable = false)
 	private String telephoneNumber;
-
 	private String email;
-
-	@Column(nullable = false)
 	private String patientNumber;
-
-	@Column(nullable = false)
 	private LocalDate dateOfBirth;
+	private int age; // nowe pole
 
+	@ManyToOne
+	@JoinColumn(name = "address_id", nullable = false)
+	private AddressEntity address;
+
+	@OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
+	private List<VisitEntity> visits;
+
+	// Gettery i settery
+	// (dodano getter i setter dla age)
 	public Long getId() {
 		return id;
 	}
@@ -90,4 +82,27 @@ public class PatientEntity {
 		this.dateOfBirth = dateOfBirth;
 	}
 
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public AddressEntity getAddress() {
+		return address;
+	}
+
+	public void setAddress(AddressEntity address) {
+		this.address = address;
+	}
+
+	public List<VisitEntity> getVisits() {
+		return visits;
+	}
+
+	public void setVisits(List<VisitEntity> visits) {
+		this.visits = visits;
+	}
 }
