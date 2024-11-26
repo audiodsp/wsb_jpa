@@ -1,6 +1,8 @@
 package com.jpacourse.persistence.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,11 +25,13 @@ public class AddressEntity {
 
 	private String postalCode;
 
-	@OneToOne(mappedBy = "address")
-	private DoctorEntity doctor; // relacja dwustronna
+	// One-to-one relationship with DoctorEntity (two-way relation)
+	@OneToOne(mappedBy = "address", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
+	private DoctorEntity doctor;
 
-	@OneToOne(mappedBy = "address")
-	private PatientEntity patient; // relacja dwustronna
+	// One-to-one relationship with DoctorEntity (two-way relation)
+	@OneToOne(mappedBy = "address", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
+	private PatientEntity patient;
 
 	public Long getId() {
 		return id;

@@ -2,6 +2,7 @@ package com.jpacourse.persistence.entity;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -25,13 +26,15 @@ public class VisitEntity {
 	@Column(nullable = false)
 	private LocalDateTime time;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	// Many-to-one relationship with DoctorEntity (one-way relation from children)
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "doctor_id")
-	private DoctorEntity doctor; // relacja jednostronna od strony dziecka
+	private DoctorEntity doctor;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	// Many-to-one relationship with PatientEntity (one-way relation from children)
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "patient_id")
-	private PatientEntity patient; // relacja jednostronna od strony dziecka
+	private PatientEntity patient;
 
 	public Long getId() {
 		return id;
