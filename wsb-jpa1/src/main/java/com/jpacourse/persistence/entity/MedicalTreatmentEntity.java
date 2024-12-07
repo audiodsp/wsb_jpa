@@ -30,7 +30,7 @@ public class MedicalTreatmentEntity {
 	private TreatmentType type;
 
 	// Many-to-one relationship with VisitEntity (one-way relation from children)
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
+	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "visit_id")
 	private VisitEntity visit;
 
