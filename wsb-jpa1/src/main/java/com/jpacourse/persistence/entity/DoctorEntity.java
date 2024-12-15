@@ -1,5 +1,8 @@
 package com.jpacourse.persistence.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -42,9 +46,13 @@ public class DoctorEntity {
 	private Specialization specialization;
 
 	// One-to-one relationship with AdressEntity (two-way relation)
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
+	@OneToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "address_id")
 	private AddressEntity address;
+
+	// One-to-many relationship with VisitEntity
+    @OneToMany(mappedBy = "doctor", cascade = CascadeType.MERGE, orphanRemoval = true)
+    private List<VisitEntity> visits = new ArrayList<>();
 
 	public Long getId() {
 		return id;
@@ -109,5 +117,23 @@ public class DoctorEntity {
 	public void setAddress(AddressEntity address) {
 		this.address = address;
 	}
+
+	public List<VisitEntity> getVisits() {
+        return visits;
+    }
+
+    public void setVisits(List<VisitEntity> visits) {
+        this.visits = visits;
+    }
+
+    public void addVisit(VisitEntity visit) {
+        this.visits.add(visit);
+        visit.setDoctor(this);
+    }
+
+    public void removeVisit(VisitEntity visit) {
+        this.visits.remove(visit);
+        visit.setDoctor(null);
+    }
 
 }

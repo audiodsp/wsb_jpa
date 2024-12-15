@@ -1,6 +1,7 @@
 package com.jpacourse.persistence.entity;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -17,12 +18,15 @@ public class AddressEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@Column(nullable = false)
 	private String city;
 
+	@Column(nullable = false)
 	private String addressLine1;
 
 	private String addressLine2;
 
+	@Column(nullable = false)
 	private String postalCode;
 
 	// One-to-one relationship with DoctorEntity (two-way relation)

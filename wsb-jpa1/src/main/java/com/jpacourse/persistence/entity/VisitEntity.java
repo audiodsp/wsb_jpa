@@ -1,6 +1,8 @@
 package com.jpacourse.persistence.entity;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -11,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -27,14 +30,17 @@ public class VisitEntity {
 	private LocalDateTime time;
 
 	// Many-to-one relationship with DoctorEntity (one-way relation from children)
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
+	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "doctor_id")
 	private DoctorEntity doctor;
 
 	// Many-to-one relationship with PatientEntity (one-way relation from children)
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
+	@ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "patient_id")
 	private PatientEntity patient;
+
+	@OneToMany(mappedBy = "visit", cascade = {CascadeType.MERGE, CascadeType.PERSIST}, orphanRemoval = false)
+	private List<MedicalTreatmentEntity> treatments = new ArrayList<>();
 
 	public Long getId() {
 		return id;
@@ -74,6 +80,24 @@ public class VisitEntity {
 
 	public void setPatient(PatientEntity patient) {
 		this.patient = patient;
+	}
+
+	public List<MedicalTreatmentEntity> getTreatments() {
+		return treatments;
+	}
+
+	public void setTreatments(List<MedicalTreatmentEntity> treatments) {
+		this.treatments = treatments;
+	}
+
+	public void addTreatment(MedicalTreatmentEntity treatment) {
+		treatments.add(treatment);
+		treatment.setVisit(this);
+	}
+
+	public void removeTreatment(MedicalTreatmentEntity treatment) {
+		treatments.remove(treatment);
+		treatment.setVisit(null);
 	}
 
 }
