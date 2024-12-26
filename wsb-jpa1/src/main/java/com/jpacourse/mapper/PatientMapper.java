@@ -2,9 +2,12 @@ package com.jpacourse.mapper;
 
 import com.jpacourse.dto.PatientTO;
 import com.jpacourse.persistence.entity.PatientEntity;
+import org.springframework.stereotype.Component;
 
-public class PatientMapper {
-    public static PatientTO mapToTO(final PatientEntity patientEntity) {
+@Component
+public class
+PatientMapper {
+    public PatientTO mapToTO(final PatientEntity patientEntity) {
         if (patientEntity == null) return null;
 
         final PatientTO patientTO = new PatientTO();
@@ -21,7 +24,7 @@ public class PatientMapper {
 
     }
 
-    public static PatientEntity mapToEntity(final PatientTO patientTO) {
+    public PatientEntity mapToEntity(final PatientTO patientTO) {
         if (patientTO == null) return null;
 
         final PatientEntity patientEntity = new PatientEntity();

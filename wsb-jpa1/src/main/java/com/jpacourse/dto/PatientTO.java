@@ -4,13 +4,15 @@ import com.jpacourse.persistence.entity.VisitEntity;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
+
 
 public class PatientTO implements Serializable {
     private Long id;
     private String firstName, lastName, telephoneNumber, email, patientNumber;
     private Boolean doesHaveChronicDiseases;
     private LocalDate dateOfBirth;
-    private VisitEntity visits;
+    private List<VisitEntity> visits;
 
     public Boolean getDoesHaveChronicDiseases() {
         return doesHaveChronicDiseases;
@@ -20,11 +22,12 @@ public class PatientTO implements Serializable {
         this.doesHaveChronicDiseases = doesHaveChronicDiseases;
     }
 
-    public VisitEntity getVisits() {
+
+    public List<VisitEntity> getVisits() {
         return visits;
     }
 
-    public void setVisits(VisitEntity visits) {
+    public void setVisits(List<VisitEntity> visits) {
         this.visits = visits;
     }
 
