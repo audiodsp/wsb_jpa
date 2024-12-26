@@ -7,6 +7,7 @@ import com.jpacourse.persistence.entity.PatientEntity;
 import com.jpacourse.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.DeleteMapping;
 
 import javax.transaction.Transactional;
 
@@ -27,5 +28,11 @@ public class PatientServiceImpl implements PatientService {
     public PatientTO findById(Long ID) {
         final PatientEntity patientEntity = patientDao.findOne(ID);
         return patientMapper.mapToTO(patientEntity);
+    }
+
+    @Transactional
+    @Override
+    public void deleteById(Long ID) {
+        patientDao.delete(ID);
     }
 }

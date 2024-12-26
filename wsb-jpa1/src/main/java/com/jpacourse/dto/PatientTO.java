@@ -9,27 +9,15 @@ import java.util.List;
 
 public class PatientTO implements Serializable {
     private Long id;
-    private String firstName, lastName, telephoneNumber, email, patientNumber;
-    private Boolean doesHaveChronicDiseases;
+    private String firstName;
+    private String lastName;
+    private String telephoneNumber;
+    private String email;
+    private String patientNumber;
     private LocalDate dateOfBirth;
-    private List<VisitEntity> visits;
-
-    public Boolean getDoesHaveChronicDiseases() {
-        return doesHaveChronicDiseases;
-    }
-
-    public void setDoesHaveChronicDiseases(Boolean doesHaveChronicDiseases) {
-        this.doesHaveChronicDiseases = doesHaveChronicDiseases;
-    }
-
-
-    public List<VisitEntity> getVisits() {
-        return visits;
-    }
-
-    public void setVisits(List<VisitEntity> visits) {
-        this.visits = visits;
-    }
+    private AddressTO address;
+    private List<VisitTO> visits;
+    private boolean doesHaveChronicDisease;
 
     public Long getId() {
         return id;
@@ -85,5 +73,29 @@ public class PatientTO implements Serializable {
 
     public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public AddressTO getAddress() {
+        return address;
+    }
+
+    public void setAddress(AddressTO address) {
+        this.address = address;
+    }
+
+    public List<VisitTO> getVisits() {
+        return visits;
+    }
+
+    public void setVisits(List<VisitTO> visits) {
+        this.visits = visits;
+    }
+
+    public boolean isDoesHaveChronicDisease() {
+        return doesHaveChronicDisease;
+    }
+
+    public void setDoesHaveChronicDisease(boolean doesHaveChronicDisease) {
+        this.doesHaveChronicDisease = doesHaveChronicDisease;
     }
 }
