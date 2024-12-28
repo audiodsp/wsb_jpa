@@ -1,10 +1,18 @@
 package com.jpacourse.persistence.entity;
 
+<<<<<<< HEAD
 import javax.persistence.*;
+=======
+>>>>>>> 73c4b2f (Edit PatientController, PatientServiceImp, PatientService and application.properties)
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+<<<<<<< HEAD
+=======
+import javax.persistence.*;
+
+>>>>>>> 73c4b2f (Edit PatientController, PatientServiceImp, PatientService and application.properties)
 @Entity
 @Table(name = "VISIT")
 public class VisitEntity {
@@ -18,6 +26,7 @@ public class VisitEntity {
     @Column(nullable = false)
     private LocalDateTime time;
 
+<<<<<<< HEAD
     @ManyToOne // Relacja dwustronna z Doctor
     @JoinColumn(name = "doctor_id", nullable = false)
     private DoctorEntity doctor;
@@ -28,6 +37,21 @@ public class VisitEntity {
 
     @OneToMany(mappedBy = "visit", cascade = CascadeType.ALL) // Relacja dwustronna z MedicalTreatment
     private List<MedicalTreatmentEntity> treatments;
+=======
+
+    @ManyToOne
+    @JoinColumn(name = "DOCTOR_id", nullable = false)
+    private DoctorEntity doctorEntity;
+
+    @ManyToMany
+    @JoinTable(
+            name = "VISIT_MEDICAL_TREATMENT", // Name of the join table
+            joinColumns = @JoinColumn(name = "VISIT_id"), // Column for visit_id in the join table
+            inverseJoinColumns = @JoinColumn(name = "MEDICAL_TREATMENT_id") // Column for medical_treatment_id in the join table
+    )
+    private List<MedicalTreatmentEntity> treatments = new ArrayList<>();
+
+>>>>>>> 73c4b2f (Edit PatientController, PatientServiceImp, PatientService and application.properties)
 
     public Long getId() {
         return id;
@@ -53,6 +77,7 @@ public class VisitEntity {
         this.time = time;
     }
 
+<<<<<<< HEAD
     public DoctorEntity getDoctor() {
         return doctor;
     }
@@ -77,3 +102,6 @@ public class VisitEntity {
         this.treatments = treatments;
     }
 }
+=======
+}
+>>>>>>> 73c4b2f (Edit PatientController, PatientServiceImp, PatientService and application.properties)

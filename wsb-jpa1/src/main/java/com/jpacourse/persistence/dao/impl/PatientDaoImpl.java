@@ -1,6 +1,7 @@
 package com.jpacourse.persistence.dao.impl;
 
 import com.jpacourse.persistence.dao.PatientDao;
+<<<<<<< HEAD
 import com.jpacourse.persistence.entity.DoctorEntity;
 import com.jpacourse.persistence.entity.PatientEntity;
 import com.jpacourse.persistence.entity.VisitEntity;
@@ -35,3 +36,10 @@ public class PatientDaoImpl extends AbstractDao<PatientEntity, Long> implements 
         return visitEntity;
     }
 }
+=======
+import com.jpacourse.persistence.entity.PatientEntity;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class PatientDaoImpl extends AbstractDao<PatientEntity, Long> implements PatientDao{ }
+>>>>>>> 73c4b2f (Edit PatientController, PatientServiceImp, PatientService and application.properties)

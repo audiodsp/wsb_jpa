@@ -2,8 +2,19 @@ package com.jpacourse.persistence.entity;
 
 import com.jpacourse.persistence.enums.Specialization;
 
+<<<<<<< HEAD
 import javax.persistence.*;
 import java.util.List;
+=======
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+>>>>>>> 73c4b2f (Edit PatientController, PatientServiceImp, PatientService and application.properties)
 
 @Entity
 @Table(name = "DOCTOR")
@@ -31,6 +42,7 @@ public class DoctorEntity {
 	@Enumerated(EnumType.STRING)
 	private Specialization specialization;
 
+<<<<<<< HEAD
 	@OneToOne(cascade = CascadeType.ALL) // Relacja jednostronna z Address
 	@JoinColumn(name = "address_id", nullable = false)
 	private AddressEntity address;
@@ -38,6 +50,8 @@ public class DoctorEntity {
 	@OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL) // Relacja dwustronna z Visit
 	private List<VisitEntity> visits;
 
+=======
+>>>>>>> 73c4b2f (Edit PatientController, PatientServiceImp, PatientService and application.properties)
 	public Long getId() {
 		return id;
 	}
@@ -94,6 +108,7 @@ public class DoctorEntity {
 		this.specialization = specialization;
 	}
 
+<<<<<<< HEAD
 	public AddressEntity getAddress() {
 		return address;
 	}
@@ -109,4 +124,6 @@ public class DoctorEntity {
 	public void setVisits(List<VisitEntity> visits) {
 		this.visits = visits;
 	}
+=======
+>>>>>>> 73c4b2f (Edit PatientController, PatientServiceImp, PatientService and application.properties)
 }

@@ -18,7 +18,11 @@ PatientMapper {
         patientTO.setEmail(patientEntity.getEmail());
         patientTO.setPatientNumber(patientEntity.getPatientNumber());
         patientTO.setDateOfBirth(patientEntity.getDateOfBirth());
+<<<<<<< HEAD
         patientTO.setDoesHaveChronicDisease(patientEntity.getDoesHaveChronicDisease());
+=======
+        patientTO.setDoesHaveChronicDiseases(patientEntity.getDoesHaveChronicDisease());
+>>>>>>> 73c4b2f (Edit PatientController, PatientServiceImp, PatientService and application.properties)
 
         return patientTO;
 
@@ -35,7 +39,11 @@ PatientMapper {
         patientEntity.setEmail(patientTO.getEmail());
         patientEntity.setPatientNumber(patientTO.getPatientNumber());
         patientEntity.setDateOfBirth(patientTO.getDateOfBirth());
+<<<<<<< HEAD
         patientEntity.setDoesHaveChronicDisease(patientTO.isDoesHaveChronicDisease());
+=======
+        patientEntity.setDoesHaveChronicDisease(patientTO.getDoesHaveChronicDiseases());
+>>>>>>> 73c4b2f (Edit PatientController, PatientServiceImp, PatientService and application.properties)
 
         return patientEntity;
     }

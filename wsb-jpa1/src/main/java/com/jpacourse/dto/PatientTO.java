@@ -9,6 +9,7 @@ import java.util.List;
 
 public class PatientTO implements Serializable {
     private Long id;
+<<<<<<< HEAD
     private String firstName;
     private String lastName;
     private String telephoneNumber;
@@ -18,6 +19,29 @@ public class PatientTO implements Serializable {
     private AddressTO address;
     private List<VisitTO> visits;
     private boolean doesHaveChronicDisease;
+=======
+    private String firstName, lastName, telephoneNumber, email, patientNumber;
+    private Boolean doesHaveChronicDiseases;
+    private LocalDate dateOfBirth;
+    private List<VisitEntity> visits;
+
+    public Boolean getDoesHaveChronicDiseases() {
+        return doesHaveChronicDiseases;
+    }
+
+    public void setDoesHaveChronicDiseases(Boolean doesHaveChronicDiseases) {
+        this.doesHaveChronicDiseases = doesHaveChronicDiseases;
+    }
+
+
+    public List<VisitEntity> getVisits() {
+        return visits;
+    }
+
+    public void setVisits(List<VisitEntity> visits) {
+        this.visits = visits;
+    }
+>>>>>>> 73c4b2f (Edit PatientController, PatientServiceImp, PatientService and application.properties)
 
     public Long getId() {
         return id;
@@ -74,6 +98,7 @@ public class PatientTO implements Serializable {
     public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
+<<<<<<< HEAD
 
     public AddressTO getAddress() {
         return address;
@@ -99,3 +124,6 @@ public class PatientTO implements Serializable {
         this.doesHaveChronicDisease = doesHaveChronicDisease;
     }
 }
+=======
+}
+>>>>>>> 73c4b2f (Edit PatientController, PatientServiceImp, PatientService and application.properties)

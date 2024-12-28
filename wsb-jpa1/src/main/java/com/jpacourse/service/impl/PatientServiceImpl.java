@@ -10,6 +10,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.DeleteMapping;
 
 import javax.transaction.Transactional;
+<<<<<<< HEAD
+=======
+import java.util.List;
+>>>>>>> 73c4b2f (Edit PatientController, PatientServiceImp, PatientService and application.properties)
 
 @Service
 @Transactional
@@ -30,9 +34,39 @@ public class PatientServiceImpl implements PatientService {
         return patientMapper.mapToTO(patientEntity);
     }
 
+<<<<<<< HEAD
+=======
+    @Override
+    public List<PatientEntity> getAllPatients() {
+        return patientDao.findAll();
+    }
+
+    @Override
+    public PatientTO createPatient(PatientTO patientTO) {
+        if (patientTO.getId() == null) {
+            throw new IllegalArgumentException("Patient must have an ID");
+        }
+        PatientEntity patient = patientMapper.mapToEntity(patientTO);
+        return patientMapper.mapToTO(patientDao.save(patient));
+    }
+
+    @Override
+    public PatientTO updatePatient(PatientTO patientTO) {
+        if (patientTO.getId() == null) {
+            throw new IllegalArgumentException("Patient must have an ID");
+        }
+        final PatientEntity patient = patientMapper.mapToEntity(patientTO);
+        return patientMapper.mapToTO(patientDao.save(patient));
+    }
+
+>>>>>>> 73c4b2f (Edit PatientController, PatientServiceImp, PatientService and application.properties)
     @Transactional
     @Override
     public void deleteById(Long ID) {
         patientDao.delete(ID);
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 73c4b2f (Edit PatientController, PatientServiceImp, PatientService and application.properties)
 }
