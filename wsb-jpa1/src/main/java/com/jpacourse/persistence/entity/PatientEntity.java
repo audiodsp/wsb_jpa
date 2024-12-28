@@ -34,6 +34,9 @@ public class PatientEntity {
 	@Column(nullable = false)
 	private LocalDate dateOfBirth;
 
+	@Column(nullable = false)
+	private Boolean doesHaveChronicDisease;
+
 	public Long getId() {
 		return id;
 	}
@@ -90,4 +93,11 @@ public class PatientEntity {
 		this.dateOfBirth = dateOfBirth;
 	}
 
+	public Boolean getDoesHaveChronicDisease() {
+		return doesHaveChronicDisease;
+	}
+
+	public void setDoesHaveChronicDisease(Boolean doesHaveChronicDisease) {
+		this.doesHaveChronicDisease = doesHaveChronicDisease;
+	}
 }
