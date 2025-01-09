@@ -1,13 +1,10 @@
 package com.jpacourse.persistence.entity;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "PATIENT")
@@ -33,6 +30,37 @@ public class PatientEntity {
 
 	@Column(nullable = false)
 	private LocalDate dateOfBirth;
+
+	@Column(nullable = false)
+	private Boolean hasInsurence;
+
+	@OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<VisitEntity> visits = new ArrayList<>();
+//	private List<VisitEntity> visits; // Relacja dwustronna, rodzicem (właścicielem relacji) jest VisitEntity
+
+
+
+
+	//	@OneToOne(mappedBy = "patient", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//	private AddressEntity address; // Relacja dwustronna, rodzicem (właścicielem relacji) jest AddressEntity
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "address_id", referencedColumnName = "id", nullable = true)
+	private AddressEntity address;
+
+	public void setAddress(AddressEntity address) {
+		this.address = address;
+	}
+	public AddressEntity getAddress() {
+		return address;
+	}
+
+	public List<VisitEntity> getVisits() {
+		return visits;
+	}
+
+	public void setVisits(List<VisitEntity> visits) {
+		this.visits = visits;
+	}
 
 	public Long getId() {
 		return id;
@@ -90,4 +118,11 @@ public class PatientEntity {
 		this.dateOfBirth = dateOfBirth;
 	}
 
+	public Boolean getHasInsurence() {
+		return hasInsurence;
+	}
+
+	public void setHasInsurence(Boolean hasInsurence) {
+		this.hasInsurence = hasInsurence;
+	}
 }
