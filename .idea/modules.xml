@@ -3,9 +3,13 @@
   <component name="ProjectModuleManager">
     <modules>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/wsb-jpa1/wsb-jpa1.iml" filepath="$PROJECT_DIR$/wsb-jpa1/wsb-jpa1.iml" />
 =======
 >>>>>>> 73c4b2f (Edit PatientController, PatientServiceImp, PatientService and application.properties)
+=======
+      <module fileurl="file://$PROJECT_DIR$/wsb-jpa1/wsb-jpa1.iml" filepath="$PROJECT_DIR$/wsb-jpa1/wsb-jpa1.iml" />
+>>>>>>> 26f19f0 (lab3)
       <module fileurl="file://$PROJECT_DIR$/.idea/wsb_jpa.iml" filepath="$PROJECT_DIR$/.idea/wsb_jpa.iml" />
     </modules>
   </component>

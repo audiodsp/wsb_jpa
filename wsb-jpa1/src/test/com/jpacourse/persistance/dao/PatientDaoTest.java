@@ -11,8 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
+<<<<<<< HEAD
 
 import java.time.LocalDateTime;
+=======
+import java.time.LocalDateTime;
+import java.util.List;
+>>>>>>> 26f19f0 (lab3)
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -47,6 +52,7 @@ class PatientDaoTest {
         assertThat(result.getDescription()).isEqualTo("some description");
         assertThat(result.getTime()).isEqualTo(visitDate);
     }
+<<<<<<< HEAD
 }
 
 
@@ -54,3 +60,22 @@ class PatientDaoTest {
 
 
 
+=======
+
+    @Test
+    void findPatientByLastname() {
+        PatientEntity patientEntity = patientDao.findOne(1L);
+        assertThat(patientEntity).isNotNull();
+        assertThat(patientEntity.getLastName().equals("Ipsum")).isTrue();
+    }
+
+    @Test
+    void getPatientVisits() {
+        PatientEntity patientEntity = patientDao.findPatientById(1L);
+        List<VisitEntity> visits = patientEntity.getVisits();
+
+        assertThat(visits).isNotNull();
+        assertThat(visits).isNotEmpty();
+    }
+}
+>>>>>>> 26f19f0 (lab3)
