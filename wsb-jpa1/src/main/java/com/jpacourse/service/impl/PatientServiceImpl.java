@@ -7,15 +7,9 @@ import com.jpacourse.persistence.entity.PatientEntity;
 import com.jpacourse.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.transaction.Transactional;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
+import org.springframework.transaction.annotation.Transactional;
+import java.time.LocalDate;
 import java.util.List;
->>>>>>> 73c4b2f (Edit PatientController, PatientServiceImp, PatientService and application.properties)
-=======
->>>>>>> 26f19f0 (lab3)
 
 @Service
 @Transactional
@@ -36,9 +30,6 @@ public class PatientServiceImpl implements PatientService {
         return patientMapper.mapToTO(patientEntity);
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
     @Override
     public List<PatientEntity> getAllPatients() {
         return patientDao.findAll();
@@ -62,19 +53,26 @@ public class PatientServiceImpl implements PatientService {
         return patientMapper.mapToTO(patientDao.save(patient));
     }
 
->>>>>>> 73c4b2f (Edit PatientController, PatientServiceImp, PatientService and application.properties)
-=======
->>>>>>> 26f19f0 (lab3)
     @Transactional
     @Override
     public void deleteById(Long ID) {
         patientDao.delete(ID);
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
->>>>>>> 73c4b2f (Edit PatientController, PatientServiceImp, PatientService and application.properties)
-=======
->>>>>>> 26f19f0 (lab3)
+
+    @Override
+    public PatientTO findByLastname(String lastname) {
+        final PatientEntity patientEntity = patientDao.findPatientByLastname(lastname);
+        return patientMapper.mapToTO(patientEntity);
+    }
+
+    @Override
+    public List<PatientEntity> findByMoreAppointmentsAmount(int moreAppointmentsAmount) {
+        return patientDao.findPatientsByVisitCount(moreAppointmentsAmount);
+    }
+
+    @Override
+    public List<PatientEntity> findByChronicDiseaseAndOlderThan(LocalDate birthdate) {
+        return patientDao.findPatientWithChronicDiseasesAndOlderThan(birthdate);
+    }
 }

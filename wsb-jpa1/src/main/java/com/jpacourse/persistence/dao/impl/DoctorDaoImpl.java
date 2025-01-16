@@ -5,5 +5,4 @@ import com.jpacourse.persistence.entity.DoctorEntity;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class DoctorDaoImpl extends AbstractDao<DoctorEntity, Long> implements DoctorDao {
-}
+public class DoctorDaoImpl extends AbstractDao<DoctorEntity, Long> implements DoctorDao { }

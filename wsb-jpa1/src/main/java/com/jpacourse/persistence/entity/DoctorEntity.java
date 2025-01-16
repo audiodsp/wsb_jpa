@@ -1,129 +1,87 @@
 package com.jpacourse.persistence.entity;
 
 import com.jpacourse.persistence.enums.Specialization;
-
-<<<<<<< HEAD
-import javax.persistence.*;
-import java.util.List;
-=======
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
->>>>>>> 73c4b2f (Edit PatientController, PatientServiceImp, PatientService and application.properties)
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "DOCTOR")
 public class DoctorEntity {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@Column(nullable = false)
-	private String firstName;
+    @Column(nullable = false)
+    private String firstName;
 
-	@Column(nullable = false)
-	private String lastName;
+    @Column(nullable = false)
+    private String lastName;
 
-	@Column(nullable = false)
-	private String telephoneNumber;
+    @Column(nullable = false)
+    private String telephoneNumber;
 
-	private String email;
+    private String email;
 
-	@Column(nullable = false)
-	private String doctorNumber;
+    @Column(nullable = false)
+    private String doctorNumber;
 
-	@Column(nullable = false)
-	@Enumerated(EnumType.STRING)
-	private Specialization specialization;
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Specialization specialization;
 
-<<<<<<< HEAD
-	@OneToOne(cascade = CascadeType.ALL) // Relacja jednostronna z Address
-	@JoinColumn(name = "address_id", nullable = false)
-	private AddressEntity address;
+    public Long getId() {
+        return id;
+    }
 
-	@OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL) // Relacja dwustronna z Visit
-	private List<VisitEntity> visits;
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-=======
->>>>>>> 73c4b2f (Edit PatientController, PatientServiceImp, PatientService and application.properties)
-	public Long getId() {
-		return id;
-	}
+    public String getFirstName() {
+        return firstName;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-	public String getFirstName() {
-		return firstName;
-	}
+    public String getLastName() {
+        return lastName;
+    }
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-	public String getLastName() {
-		return lastName;
-	}
+    public String getTelephoneNumber() {
+        return telephoneNumber;
+    }
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+    public void setTelephoneNumber(String telephoneNumber) {
+        this.telephoneNumber = telephoneNumber;
+    }
 
-	public String getTelephoneNumber() {
-		return telephoneNumber;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public void setTelephoneNumber(String telephoneNumber) {
-		this.telephoneNumber = telephoneNumber;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public String getDoctorNumber() {
+        return doctorNumber;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public void setDoctorNumber(String doctorNumber) {
+        this.doctorNumber = doctorNumber;
+    }
 
-	public String getDoctorNumber() {
-		return doctorNumber;
-	}
+    public Specialization getSpecialization() {
+        return specialization;
+    }
 
-	public void setDoctorNumber(String doctorNumber) {
-		this.doctorNumber = doctorNumber;
-	}
-
-	public Specialization getSpecialization() {
-		return specialization;
-	}
-
-	public void setSpecialization(Specialization specialization) {
-		this.specialization = specialization;
-	}
-
-<<<<<<< HEAD
-	public AddressEntity getAddress() {
-		return address;
-	}
-
-	public void setAddress(AddressEntity address) {
-		this.address = address;
-	}
-
-	public List<VisitEntity> getVisits() {
-		return visits;
-	}
-
-	public void setVisits(List<VisitEntity> visits) {
-		this.visits = visits;
-	}
-=======
->>>>>>> 73c4b2f (Edit PatientController, PatientServiceImp, PatientService and application.properties)
+    public void setSpecialization(Specialization specialization) {
+        this.specialization = specialization;
+    }
 }

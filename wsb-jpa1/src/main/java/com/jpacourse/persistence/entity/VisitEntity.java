@@ -1,18 +1,11 @@
 package com.jpacourse.persistence.entity;
 
-<<<<<<< HEAD
-import javax.persistence.*;
-=======
->>>>>>> 73c4b2f (Edit PatientController, PatientServiceImp, PatientService and application.properties)
+import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-<<<<<<< HEAD
-=======
-import javax.persistence.*;
-
->>>>>>> 73c4b2f (Edit PatientController, PatientServiceImp, PatientService and application.properties)
 @Entity
 @Table(name = "VISIT")
 public class VisitEntity {
@@ -26,18 +19,12 @@ public class VisitEntity {
     @Column(nullable = false)
     private LocalDateTime time;
 
-<<<<<<< HEAD
-    @ManyToOne // Relacja dwustronna z Doctor
-    @JoinColumn(name = "doctor_id", nullable = false)
-    private DoctorEntity doctor;
-
     @ManyToOne // Relacja dwustronna z Patient
     @JoinColumn(name = "patient_id", nullable = false)
     private PatientEntity patient;
 
-    @OneToMany(mappedBy = "visit", cascade = CascadeType.ALL) // Relacja dwustronna z MedicalTreatment
-    private List<MedicalTreatmentEntity> treatments;
-=======
+//    @OneToMany(mappedBy = "visit", cascade = CascadeType.ALL) // Relacja dwustronna z MedicalTreatment
+//    private List<MedicalTreatmentEntity> treatments;
 
     @ManyToOne
     @JoinColumn(name = "DOCTOR_id", nullable = false)
@@ -50,8 +37,6 @@ public class VisitEntity {
             inverseJoinColumns = @JoinColumn(name = "MEDICAL_TREATMENT_id") // Column for medical_treatment_id in the join table
     )
     private List<MedicalTreatmentEntity> treatments = new ArrayList<>();
-
->>>>>>> 73c4b2f (Edit PatientController, PatientServiceImp, PatientService and application.properties)
 
     public Long getId() {
         return id;
@@ -77,21 +62,20 @@ public class VisitEntity {
         this.time = time;
     }
 
-<<<<<<< HEAD
-    public DoctorEntity getDoctor() {
-        return doctor;
-    }
-
-    public void setDoctor(DoctorEntity doctor) {
-        this.doctor = doctor;
-    }
-
     public PatientEntity getPatient() {
         return patient;
     }
 
     public void setPatient(PatientEntity patient) {
         this.patient = patient;
+    }
+
+    public DoctorEntity getDoctorEntity() {
+        return doctorEntity;
+    }
+
+    public void setDoctorEntity(DoctorEntity doctorEntity) {
+        this.doctorEntity = doctorEntity;
     }
 
     public List<MedicalTreatmentEntity> getTreatments() {
@@ -102,6 +86,3 @@ public class VisitEntity {
         this.treatments = treatments;
     }
 }
-=======
-}
->>>>>>> 73c4b2f (Edit PatientController, PatientServiceImp, PatientService and application.properties)

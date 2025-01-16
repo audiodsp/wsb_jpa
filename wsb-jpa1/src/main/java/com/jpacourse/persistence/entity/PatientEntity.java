@@ -1,19 +1,10 @@
 package com.jpacourse.persistence.entity;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
-<<<<<<< HEAD
 import java.util.List;
 
-import javax.persistence.*;
-=======
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
->>>>>>> 73c4b2f (Edit PatientController, PatientServiceImp, PatientService and application.properties)
 
 @Entity
 @Table(name = "PATIENT")
@@ -22,6 +13,9 @@ public class PatientEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
+	@Version
+	private Long version;
 
 	@Column(nullable = false)
 	private String firstName;
@@ -43,7 +37,6 @@ public class PatientEntity {
 	@Column(nullable = false)
 	private Boolean doesHaveChronicDisease;
 
-<<<<<<< HEAD
 	@OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
 	private List<VisitEntity> visits;
 
@@ -67,8 +60,6 @@ public class PatientEntity {
 		this.address = address;
 	}
 
-=======
->>>>>>> 73c4b2f (Edit PatientController, PatientServiceImp, PatientService and application.properties)
 	public Long getId() {
 		return id;
 	}
@@ -131,5 +122,13 @@ public class PatientEntity {
 
 	public void setDoesHaveChronicDisease(Boolean doesHaveChronicDisease) {
 		this.doesHaveChronicDisease = doesHaveChronicDisease;
+	}
+
+	public Long getVersion() {
+		return version;
+	}
+
+	public void setVersion(Long version) {
+		this.version = version;
 	}
 }

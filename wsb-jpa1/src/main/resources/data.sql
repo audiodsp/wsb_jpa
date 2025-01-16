@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 insert into address (id, address_line1, address_line2, city, postal_code)
 values (1, 'xx', 'yy', 'city', '62-030');
 
@@ -6,57 +5,38 @@ insert into address (id, address_line1, address_line2, city, postal_code)
 values (2, 'xasdx', 'yydsadas', 'adsdacity', '62asddas-030');
 
 
-insert into doctor (ID, FIRST_NAME, LAST_NAME, TELEPHONE_NUMBER, EMAIL, DOCTOR_NUMBER, SPECIALIZATION, ADDRESS_ID)
-values (1, 'JD01D', 'j.doe@clinic.com', 'John', 'Doe', 'DERMATOLOGIST', 'DERMATOLOGIST', 1);
+insert into doctor (ID, FIRST_NAME, LAST_NAME, TELEPHONE_NUMBER, EMAIL, DOCTOR_NUMBER, SPECIALIZATION)
+values (1, 'John', 'Doe', '123-546-789', 'j.doe@cliniclcom', 'JD01D', 'DERMATOLOGIST');
 
-insert into doctor (ID, FIRST_NAME, LAST_NAME, TELEPHONE_NUMBER, EMAIL, DOCTOR_NUMBER, SPECIALIZATION, ADDRESS_ID)
-values (2, 'CT02S', 'c.tree@clinic.com', 'Carl', 'Tree', 'SURGEON', 'OCULIST', 2);
+insert into doctor (ID, FIRST_NAME, LAST_NAME, TELEPHONE_NUMBER, EMAIL, DOCTOR_NUMBER, SPECIALIZATION)
+values (2, 'Carl', 'Tree', '321-654-987', 'c.tree@clinic.com', 'CT01O', 'OCULIST');
 
 
 
 insert into patient (ID, FIRST_NAME, LAST_NAME, TELEPHONE_NUMBER, EMAIL, PATIENT_NUMBER, DATE_OF_BIRTH, DOES_HAVE_CHRONIC_DISEASE, ADDRESS_ID)
-values (1, 'Karen', 'Ipsum', '123-321-432', 'karen.ipsum@outlook.com', 'ki@01', '2000-12-21', FALSE, 1);
+values (1, 'Karen', 'Ipsum', '123-321-432', 'karen.ipsum@outlook.com', 'ki@01', '2000-12-21', TRUE, 1);
 insert into patient (ID, FIRST_NAME, LAST_NAME, TELEPHONE_NUMBER, EMAIL, PATIENT_NUMBER, DATE_OF_BIRTH, DOES_HAVE_CHRONIC_DISEASE, ADDRESS_ID)
-values (2, 'Lorem', 'Dolo', '321-321-121', 'lorem.dolo@outlook.com', 'ld@02', '2002-10-12', TRUE, 2);
+values (2, 'Lorem', 'Dolo', '321-321-121', 'lorem.dolo@outlook.com', 'ld@02', '2002-10-12', FALSE, 2);
 
 INSERT INTO visit (id, description, time, doctor_id, patient_id)
-VALUES (1, 'Routine checkup', '2024-12-21 10:00:00', 1, 1);
+VALUES (1, 'Routine checkup', '2018-12-21 10:00:00', 1, 1);
 
 INSERT INTO visit (id, description, time, doctor_id, patient_id)
-VALUES (2, 'Routine checkup', '2024-10-20 15:00:00', 2, 2);
+VALUES (2, 'Routine checkup', '2019-12-21 10:00:00', 2, 1);
+
+INSERT INTO visit (id, description, time, doctor_id, patient_id)
+VALUES (3, 'Routine checkup', '2020-12-21 10:00:00', 2, 2);
+
+INSERT INTO visit (id, description, time, doctor_id, patient_id)
+VALUES (4, 'Routine checkup', '2021-12-21 10:00:00', 2, 2);
+
+INSERT INTO visit (id, description, time, doctor_id, patient_id)
+VALUES (5, 'Routine checkup', '2022-12-21 10:00:00', 2, 1);
+
+INSERT INTO visit (id, description, time, doctor_id, patient_id)
+VALUES (6, 'Routine checkup', '2023-10-20 15:00:00', 1, 1);
 
 
 INSERT INTO medical_treatment (id, description, type, visit_id)
 VALUES (1, 'Ultrasound scan', 'USG', 1),
        (2, 'Electrocardiogram', 'EKG', 2)
-
-=======
-insert into address (id, address_line1, address_line2, city, postal_code)
-values (1, 'xx', 'yy', 'city', '62-030');
-
-insert into address (id, address_line1, address_line2, city, postal_code)
-values (2, 'xasdx', 'yydsadas', 'adsdacity', '62asddas-030');
-
-
-insert into doctor (ID, DOCTOR_NUMBER, EMAIL, FIRST_NAME, LAST_NAME, SPECIALIZATION, TELEPHONE_NUMBER)
-values (1, 'JD01D', 'j.doe@clinic.com', 'John', 'Doe', 'DERMATOLOGIST', '123-456-789');
-
-insert into doctor (ID, DOCTOR_NUMBER, EMAIL, FIRST_NAME, LAST_NAME, SPECIALIZATION, TELEPHONE_NUMBER)
-values (2, 'CT02S', 'c.tree@clinic.com', 'Carl', 'Tree', 'SURGEON', '987-654-321');
-
-
-
-
-INSERT INTO medical_treatment (id, description, type)
-VALUES (1, 'Ultrasound scan', 'USG'),
-       (2, 'Electrocardiogram', 'EKG'),
-       (3, 'X-ray', 'RTG');
-
-INSERT INTO visit (id, description, time, doctor_id)
-VALUES (1, 'Routine checkup', '2024-12-21 10:00:00', 1);
-
-INSERT INTO visit_medical_treatment (visit_id, medical_treatment_id)
-VALUES (1, 1),  -- Visit 1, Treatment 1
-       (1, 2);  -- Visit 1, Treatment 2
-
->>>>>>> 73c4b2f (Edit PatientController, PatientServiceImp, PatientService and application.properties)
